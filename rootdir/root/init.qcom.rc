@@ -813,7 +813,7 @@ on property:persist.radio.modem=LTE-CU
     setprop persist.fd.scron.timer 10000
 
 on property:dev.bootcomplete=1
-    setprop sys.io.scheduler "bfq"
+    setprop sys.io.scheduler "deadline"
 
 service sensorext /system/bin/sensorextd
     class late_start
