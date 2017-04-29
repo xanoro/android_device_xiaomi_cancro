@@ -139,10 +139,10 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     params.set(android::CameraParameters::KEY_VIDEO_STABILIZATION, "false");
 
-    /* ZSL
+    /* ZSL */
     if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
         videoMode = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
-    }*/
+    }
 
     /* HDR */
     if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
@@ -153,21 +153,19 @@ static char *camera_fixup_setparams(int id, const char *settings)
         params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
         params.set("ae-bracket-hdr", "AE-Bracket");
         params.set("capture-burst-exposures", "-6,8,0");
-
-        // enable ZSL only when HDR is on, otherwise some camera apps will break
-        /*params.set("zsl", "on");
-        params.set(KEY_QC_CAMERA_MODE, "1");*/
+        params.set("zsl", "on");
+        params.set(KEY_QC_CAMERA_MODE, "1");
     } else {
         params.set(KEY_QC_MORPHO_HDR, "false");
         params.set("ae-bracket-hdr", "Off");
         params.set("capture-burst-exposures", "0,0,0");
-        //params.set("zsl", "off");
-        //params.set(KEY_QC_CAMERA_MODE, "0");
+        params.set("zsl", "on");
+        params.set(KEY_QC_CAMERA_MODE, "0");
     }
 
     // force ZSL off for videos
-    /*if (videoMode)
-        params.set("zsl", "off");*/
+    if (videoMode)
+        params.set("zsl", "off");
 
 
 #if !LOG_NDEBUG
