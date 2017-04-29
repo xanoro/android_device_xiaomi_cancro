@@ -5,6 +5,9 @@ LOCAL_PATH := device/xiaomi/cancro
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+PRODUCT_DEFAULT_DEV_CERTIFICATE := build/target/product/security/releasekey
+PRODUCT_OTA_PUBLIC_KEYS := build/target/product/security/otakey.x509.pem
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
