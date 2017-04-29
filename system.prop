@@ -18,7 +18,7 @@ ro.fm.transmitter=false
 
 persist.data.qmi.adb_logmask=0
 
-vidc.debug.level=1
+vidc.debug.level=0
 
 qcom.bt.dev_power_class=1
 bluetooth.hfp.client=1
@@ -66,7 +66,7 @@ persist.debug.wfd.enable=1
 persist.demo.hdmirotationlock=false
 ro.hdmi.enable=true
 ro.opengles.version=196608
-ro.sf.lcd_density=480
+ro.sf.lcd_density=440
 persist.hwc.mdpcomp.enable=true
 persist.timed.enable=true
 persist.sys.wfd.virtual=0
@@ -91,3 +91,22 @@ ro.qualcomm.bluetooth.opp=true
 ro.qualcomm.bluetooth.pbap=true
 
 ro.sys.sdcardfs=true
+
+logcat.live=disable
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+dalvik.vm.checkjni=false
+ro.config.nocheckin=1
+wifi.supplicant_scan_interval=300
+pm.sleep_mode=1
+ro.ril.disable.power.collapse=0
+
+debug.sf.hw=1
+persist.sys.ui.hw=1
+debug.performance.tuning=1
+video.accelerate.hw=1
+debug.egl.profiler=1
+debug.egl.hw=1
+debug.composition.type=gpu
