@@ -32,6 +32,9 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
+    # Load persistent dm-verity state
+    verity_load_state
+
     # Set the property to indicate type of virtual display to 0
     # 0 indicates that virtual display is not a Wifi display and that the
     # session is not exercised through RemoteDisplay in the android framework
@@ -56,6 +59,12 @@ on fs
 
     wait /dev/block/bootdevice/by-name/modem
     mount vfat /dev/block/bootdevice/by-name/modem /firmware ro context=u:object_r:firmware_file:s0,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
+
+    # Adjust parameters for dm-verity device
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    # Update dm-verity state and set partition.*.verified properties
+    verity_update_state
+
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -232,6 +241,9 @@ service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
     user root
     disabled
     oneshot
+
+on verity-logging
+    exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2
 
 on property:init.svc.bootanim=stopped
     start usf-post-boot
