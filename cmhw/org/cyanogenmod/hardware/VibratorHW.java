@@ -24,7 +24,7 @@ public class VibratorHW {
 
     private static final String TAG = "VibratorHW";
 
-    private static final int DEFAULT_LEVEL = 60;
+    private static final int DEFAULT_LEVEL = 50;
     private static final int MAX_LEVEL = 127;
     private static final int MIN_LEVEL = 10;
     private static final int WARNING_LEVEL = 85;
