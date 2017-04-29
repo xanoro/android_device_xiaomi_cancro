@@ -164,6 +164,11 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
+# Dolby Atmos Audio
+PRODUCT_PACKAGES += \
+    As \
+    AsUI
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
