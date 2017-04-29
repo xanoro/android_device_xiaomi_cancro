@@ -222,6 +222,11 @@ PRODUCT_PACKAGES += librecovery_updater_cancro
 PRODUCT_PACKAGES += \
     Gello
 
+# microG
+PRODUCT_PACKAGES += \
+    GmsCore \
+    GsfProxy \
+    BlankStore
 
 # Permissions
 PRODUCT_COPY_FILES += \
