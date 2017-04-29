@@ -41,6 +41,11 @@ TARGET_CPU_ABI2     := armeabi
 TARGET_CPU_SMP      := true
 TARGET_CPU_VARIANT  := krait
 
+SDCLANG := true
+SDCLANG_PATH := prebuilts/clang/host/linux-x86/sdclang-3.8/bin
+SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
+TARGET_USE_SDCLANG  := true
+
 # Flags
 BOARD_GLOBAL_CFLAGS   += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64 -DUSE_RIL_VERSION_10
 BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
