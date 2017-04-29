@@ -228,6 +228,10 @@ PRODUCT_PACKAGES += \
     GsfProxy \
     BlankStore
 
+# F-Droid
+PRODUCT_PACKAGES += \
+    FDroid
+
 # Permissions
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
